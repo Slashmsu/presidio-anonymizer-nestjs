@@ -1,11 +1,18 @@
 {
   "name": "presidio-anonymizer",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "description": "NestJS service & module for Presidio-based anonymization/de-anonymization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
-  "keywords": ["nestjs", "presidio", "anonymizer", "pii"],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "nestjs",
+    "presidio",
+    "anonymizer",
+    "pii"
+  ],
   "license": "MIT",
   "repository": "github:<your-org>/presidio-anonymizer",
   "scripts": {
@@ -19,7 +26,11 @@
   "dependencies": {
     "@nestjs/axios": "^3.0.0",
     "@nestjs/config": "^3.0.0",
-    "rxjs": "^7.0.0",
-    "axios": "^1.6.0"
+    "axios": "^1.6.0",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.87",
+    "typescript": "^5.8.3"
   }
 }
