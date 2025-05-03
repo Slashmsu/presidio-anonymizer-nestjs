@@ -1,6 +1,6 @@
 {
-  "name": "presidio-anonymizer",
-  "version": "0.0.7",
+  "name": "presidio-anonymizer-nestjs",
+  "version": "0.0.8",
   "description": "NestJS service & module for Presidio-based anonymization/de-anonymization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,8 @@
     "nestjs",
     "presidio",
     "anonymizer",
-    "pii"
+    "pii",
+    "llm"
   ],
   "license": "MIT",
   "repository": {
