@@ -1,6 +1,6 @@
 {
   "name": "presidio-anonymizer",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "NestJS service & module for Presidio-based anonymization/de-anonymization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,10 @@
     "pii"
   ],
   "license": "MIT",
-  "repository": "github:<your-org>/presidio-anonymizer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Slashmsu/presidio-anonymizer.git"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build"
