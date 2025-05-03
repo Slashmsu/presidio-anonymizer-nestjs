@@ -1,6 +1,6 @@
 # Presidio Anonymizer for NestJS
 
-[![npm version](https://img.shields.io/npm/v/presidio-anonymizer.svg)](https://www.npmjs.com/package/presidio-anonymizer)
+[![npm version](https://img.shields.io/npm/v/presidio-anonymizer-nestjs.svg)](https://www.npmjs.com/package/presidio-anonymizer-nestjs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A NestJS module and service for anonymizing and de-anonymizing sensitive information in text using Microsoft's Presidio services.
@@ -21,7 +21,7 @@ This package provides a seamless integration of Microsoft's Presidio analyzer an
 ## Installation
 
 ```bash
-npm install presidio-anonymizer
+npm install presidio-anonymizer-nestjs
 ```
 
 ## Prerequisites
@@ -47,7 +47,7 @@ docker run -d -p 5002:3000 mcr.microsoft.com/presidio-anonymizer:latest
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { PresidioAnonymizerModule } from 'presidio-anonymizer';
+import { PresidioAnonymizerModule } from 'presidio-anonymizer-nestjs';
 
 @Module({
   imports: [
@@ -64,7 +64,7 @@ export class AppModule {}
 
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { AnonymizerService } from 'presidio-anonymizer';
+import { AnonymizerService } from 'presidio-anonymizer-nestjs';
 
 @Injectable()
 export class YourService {
