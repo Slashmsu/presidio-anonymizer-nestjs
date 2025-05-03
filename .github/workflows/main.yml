@@ -26,13 +26,6 @@ jobs:
     
     - name: Build
       run: npm run build
-      
-    - name: Generate Context7 documentation
-      uses: context7/action@v1
-      with:
-        github-token: ${{ secrets.ACTIONS_TOKEN }}
-        content-dir: './src'
-        output-dir: './docs'
 
   version-publish:
     needs: build
