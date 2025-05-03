@@ -1,6 +1,6 @@
 {
   "name": "presidio-anonymizer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "NestJS service & module for Presidio-based anonymization/de-anonymization",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
