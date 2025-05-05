@@ -9,6 +9,19 @@ A NestJS module and service for anonymizing and de-anonymizing sensitive informa
 
 This package provides a seamless integration of Microsoft's Presidio analyzer and anonymizer services into NestJS applications. It helps identify and anonymize personally identifiable information (PII) in text content while maintaining a mapping for later de-anonymization if needed.
 
+## Key Use Cases
+
+### Secure LLM Interactions
+
+One of the most important use cases for this library is enabling secure interactions with Large Language Models (LLMs):
+
+1. **Pre-LLM Anonymization**: Automatically detect and anonymize sensitive information before sending text to LLMs
+2. **Post-LLM Deanonymization**: Restore the original sensitive data in responses from LLMs
+
+This approach helps prevent sensitive data leakage while preserving the context and continuity of conversations.
+
+![Secure LLM Privacy Flow](./img/secure_llm_messaging.png)
+
 ## Features
 
 - 🔍 **PII Detection**: Identifies multiple types of sensitive information including names, phone numbers, emails, credit cards, addresses, and more
@@ -17,6 +30,7 @@ This package provides a seamless integration of Microsoft's Presidio analyzer an
 - ⚙️ **Flexible Configuration**: Configure different anonymization strategies per entity type
 - 🚀 **NestJS Integration**: Easy to use within any NestJS application
 - 💪 **Resilient**: Built-in retry mechanisms and error handling
+- 🧠 **LLM-Safe**: Secure pattern for sending sensitive information to and from LLMs
 
 ## Installation
 
@@ -90,6 +104,34 @@ export class YourService {
       original: originalText,
       entities,
     };
+  }
+}
+```
+
+### LLM Integration Example
+
+```typescript
+import { Injectable } from '@nestjs/common';
+import { AnonymizerService } from 'presidio-anonymizer-nestjs';
+
+@Injectable()
+export class LlmService {
+  constructor(
+    private readonly anonymizerService: AnonymizerService,
+    private readonly llmClient: YourLlmClient,
+  ) {}
+
+  async getSecureResponse(userInput: string) {
+    // Step 1: Anonymize sensitive data before sending to LLM
+    const { anonymizedText } = await this.anonymizerService.anonymizeText(userInput);
+    
+    // Step 2: Send anonymized text to LLM
+    const llmResponse = await this.llmClient.getCompletion(anonymizedText);
+    
+    // Step 3: Deanonymize the response to restore original entities
+    const deanonymizedResponse = this.anonymizerService.deanonymizeText(llmResponse);
+    
+    return deanonymizedResponse;
   }
 }
 ```
